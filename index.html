@@ -152,21 +152,27 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <div id="hero-carousel" class="carousel results-carousel">
+      <div id="teaser-carousel" class="carousel results-carousel">
         <div class="item">
-          <img src="./static/project-1/full-visionpipeline.gif" alt="Complete Stereo Vision Pipeline" style="width: 100%;">
+          <video poster="" id="full-pipeline" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/project-1/full-visionpipeline.gif" type="video/mp4">
+          </video>
           <h2 class="subtitle has-text-centered">
             Complete stereo vision pipeline: RGB stereo input, disparity map generation, and resulting 3D point cloud reconstruction
           </h2>
         </div>
         <div class="item">
-          <img src="./static/project-1/plant_pcd-2x.gif" alt="3D Point Cloud Reconstruction" style="width: 100%;">
+          <video poster="" id="point-cloud" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/project-1/plant_pcd-2x.gif" type="video/mp4">
+          </video>
           <h2 class="subtitle has-text-centered">
             3D point cloud visualization showing detailed geometric capture of leaf surface
           </h2>
         </div>
         <div class="item">
-          <img src="./static/project-1/data_collection.gif" alt="Tomato Plant Growth Time-lapse" style="width: 100%;">
+          <video poster="" id="data-collection" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/project-1/data_collection.gif" type="video/mp4">
+          </video>
           <h2 class="subtitle has-text-centered">
             Time-lapse visualization of tomato plant growth, demonstrating system adaptability to varying leaf morphologies
           </h2>
@@ -180,23 +186,30 @@
   <div class="hero-body">
     <div class="container">
       <div id="results-carousel" class="carousel results-carousel">
-        <div class="item">
-          <img src="./static/project-1/REX.drawio_f.png" alt="System Architecture" style="width: 100%;">
+        <div class="item item-architecture">
+          <video poster="" id="architecture" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/project-1/REX.drawio_f.png" type="video/mp4">
+          </video>
         </div>
-        <div class="item">
-          <img src="./static/project-1/yolo_output.png" alt="YOLOv8 Segmentation" style="width: 100%;">
+        <div class="item item-yolo">
+          <video poster="" id="yolo" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/project-1/yolo_output.png" type="video/mp4">
+          </video>
         </div>
-        <div class="item">
-          <img src="./static/project-1/plant_pcd-2x.gif" alt="3D Reconstruction" style="width: 100%;">
+        <div class="item item-cnn">
+          <video poster="" id="cnn" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/project-1/CNN_grasp.drawio.png" type="video/mp4">
+          </video>
         </div>
-        <div class="item">
-          <img src="./static/project-1/CNN_grasp.drawio.png" alt="Neural Network Architecture" style="width: 100%;">
+        <div class="item item-hybrid">
+          <video poster="" id="hybrid" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/project-1/hybrid_op.png" type="video/mp4">
+          </video>
         </div>
-        <div class="item">
-          <img src="./static/project-1/hybrid_op.png" alt="Hybrid Output" style="width: 100%;">
-        </div>
-        <div class="item">
-          <img src="./static/project-1/rex_grasp_4x.gif" alt="Real Robot Operation" style="width: 100%;">
+        <div class="item item-robot">
+          <video poster="" id="robot" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/project-1/rex_grasp_4x.gif" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
@@ -223,81 +236,100 @@
       </div>
     </div>
     <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">System Architecture</h2>
+        <div class="publication-video">
+          <img src="./static/project-1/REX.drawio_f.png" alt="System Architecture" style="width: 100%;">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            Our hybrid approach combines three key components: vision pipeline, grasp point selection, and robot manipulation. The system processes stereo image pairs to output precise 3D grasp coordinates.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
   </div>
 </section>
 
 <section class="section">
   <div class="container is-max-desktop">
+
     <div class="columns is-centered">
-      <!-- System Architecture. -->
+      <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">System Architecture</h2>
+          <h2 class="title is-3">Instance Segmentation</h2>
           <p>
-            Our hybrid approach combines three key components: vision pipeline, grasp point selection, and robot manipulation. The system processes stereo image pairs to output precise 3D grasp coordinates.
+            Fine-tuned YOLOv8 on ~900 images, achieving 68% mAP@[0.5:0.95] for precise leaf mask generation with high confidence scores.
           </p>
-          <img src="./static/project-1/REX.drawio_f.png" alt="System Architecture" style="width: 100%;">
+          <img src="./static/project-1/yolo_output.png" alt="YOLOv8 Output" style="width: 100%;">
         </div>
       </div>
-    </div>
+      <!--/ Visual Effects. -->
 
-    <div class="columns is-centered">
-      <!-- Vision Pipeline. -->
+      <!-- Matting. -->
       <div class="column">
-        <h2 class="title is-3">Multi-Stage Perception Pipeline</h2>
-        <div class="columns is-centered">
-          <div class="column content">
-            <h3 class="title is-4">Instance Segmentation</h3>
-            <p>
-              Fine-tuned YOLOv8 on ~900 images, achieving 68% mAP@[0.5:0.95] for precise leaf mask generation.
-            </p>
-            <img src="./static/project-1/yolo_output.png" alt="YOLOv8 Output" style="width: 100%;">
-          </div>
-        </div>
-      </div>
-
-      <div class="column">
-        <h3 class="title is-4">Depth Estimation</h3>
+        <h2 class="title is-3">Depth Estimation</h2>
         <div class="columns is-centered">
           <div class="column content">
             <p>
               RAFT-Stereo provides high-precision depth maps with sub-pixel accuracy for detailed 3D reconstruction.
             </p>
-            <div style="display: flex; gap: 10px;">
+            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
               <img src="./static/project-1/rgb_input.png" alt="RGB Input" style="width: 48%;">
               <img src="./static/project-1/depth0.png" alt="Depth Map" style="width: 48%;">
             </div>
-            <img src="./static/project-1/curvature_plot.png" alt="MATLAB Surface Analysis" style="width: 100%; margin-top: 10px;">
-            <p style="text-align: center; font-style: italic; margin-top: 5px;">MATLAB surface plot analysis showing leaf curvature distribution</p>
+            <img src="./static/project-1/curvature_plot.png" alt="MATLAB Surface Analysis" style="width: 100%;">
+            <p style="text-align: center; font-style: italic; margin-top: 5px; font-size: 0.9em;">MATLAB surface plot analysis showing leaf curvature distribution</p>
           </div>
         </div>
       </div>
     </div>
+    <!--/ Matting. -->
 
-    <!-- Hybrid Approach. -->
+    <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Hybrid Grasp Point Selection</h2>
 
+        <!-- Interpolating. -->
         <h3 class="title is-4">Traditional Computer Vision Pipeline</h3>
         <div class="content has-text-justified">
           <p>
             Geometric CV component uses Pareto optimization for leaf selection based on clutter score (35%), distance score (35%), and visibility score (30%). Grasp point selection employs flatness analysis, approach vector quality, and accessibility scoring.
           </p>
-          <div style="display: flex; gap: 10px; margin: 20px 0;">
-            <img src="./static/project-1/cv_op1.png" alt="CV Output 1" style="width: 48%;">
-            <img src="./static/project-1/cv_op2.png" alt="CV Output 2" style="width: 48%;">
+        </div>
+        <div class="columns is-vcentered interpolation-panel">
+          <div class="column is-5 has-text-centered">
+            <img src="./static/project-1/cv_op1.png"
+                 class="interpolation-image"
+                 alt="CV Output 1"/>
+            <p>Raw stereo camera image with detected leaf midrib</p>
+          </div>
+          <div class="column is-2 has-text-centered">
+            <p style="font-size: 2em;">→</p>
+          </div>
+          <div class="column is-5 has-text-centered">
+            <img src="./static/project-1/cv_op2.png"
+                 class="interpolation-image"
+                 alt="CV Output 2"/>
+            <p class="is-bold">Segmented leaf visualization with grasp point selection</p>
           </div>
         </div>
 
+        <!-- Re-rendering. -->
         <h3 class="title is-4">Neural Refinement (GraspPointCNN)</h3>
         <div class="content has-text-justified">
           <p>
             Self-supervised learning where the CV pipeline acts as an expert teacher. The CNN processes 9-channel input features with spatial attention mechanism for optimal grasp point refinement.
           </p>
-          <div style="text-align: center; margin: 20px 0;">
-            <img src="./static/project-1/CNN_grasp.drawio.png" alt="CNN Architecture" style="width: 60%; max-width: 400px;">
-          </div>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/project-1/CNN_grasp.drawio.png" alt="CNN Architecture" style="width: 60%; max-width: 400px;">
         </div>
 
         <h3 class="title is-4">Confidence-Weighted Integration</h3>
@@ -305,19 +337,21 @@
           <p>
             Dynamic integration strategy where ML influence varies (10-30%) based on prediction confidence, falling back to traditional CV (70-90%) for low-confidence predictions.
           </p>
-          <img src="./static/project-1/hybrid_op.png" alt="Hybrid Output" style="width: 100%; margin: 20px 0;">
         </div>
+        <div class="content has-text-centered">
+          <img src="./static/project-1/hybrid_op.png" alt="Hybrid Output" style="width: 100%;">
+        </div>
+        <!--/ Re-rendering. -->
+
       </div>
     </div>
-  </div>
-</section>
+    <!--/ Animation. -->
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Results. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+    <!-- Concurrent Work. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
         <h2 class="title is-3">Results & Performance</h2>
+
         <div class="content has-text-justified">
           <h3 class="title is-4">Model Metrics</h3>
           <div style="display: flex; justify-content: space-around; margin: 20px 0;">
@@ -370,39 +404,16 @@
             </tbody>
           </table>
         </div>
-      </div>
-    </div>
-    <!--/ Results. -->
-  </div>
-</section>
 
-<section class="section">
-  <div class="container is-max-desktop">
-    <!-- Real Robot Demo. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Real Robot Operation</h2>
+        <h3 class="title is-4">Real Robot Operation</h3>
         <div class="content has-text-centered">
           <img src="./static/project-1/rex_grasp_4x.gif" alt="T-REX Robot Operation" style="width: 60%; max-width: 400px;">
           <p><em>Complete pipeline in action: Once 3D coordinates are determined, the system executes precise leaf grasping</em></p>
         </div>
       </div>
     </div>
-    <!--/ Real Robot Demo. -->
+    <!--/ Concurrent Work. -->
 
-    <!-- Geometric Analysis. -->
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">3D Geometric Analysis</h2>
-        <div class="content has-text-justified">
-          <p>
-            Our system captures detailed geometric information of leaf surfaces for precise manipulation planning.
-          </p>
-          <img src="./static/project-1/curvature-2x.gif" alt="Curvature Analysis" style="width: 100%;">
-        </div>
-      </div>
-    </div>
-    <!--/ Geometric Analysis. -->
   </div>
 </section>
 
