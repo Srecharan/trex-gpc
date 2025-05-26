@@ -127,15 +127,37 @@ body {
   margin: 0;
 }
 
+.results-carousel .item img {
+  height: 200px;
+  width: auto;
+  max-width: 100%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10px;
+}
 
 .interpolation-panel {
   background: #f5f5f5;
   border-radius: 10px;
+  max-width: 100%;
+  margin: 0 auto;
 }
 
 .interpolation-panel .interpolation-image {
   width: 100%;
   border-radius: 5px;
+}
+
+/* Ensure content stays within bounds */
+.column.is-four-fifths .content img {
+  max-width: 100%;
+  height: auto;
+}
+
+.column.is-four-fifths .interpolation-panel {
+  max-width: 100%;
 }
 
 .interpolation-video-column {
@@ -154,4 +176,16 @@ body {
 }
 #interpolation-image-wrapper img {
   border-radius: 5px;
+}
+
+/* Ensure consistent width for all main content sections */
+.section .container.is-max-desktop .columns.is-centered .column.is-four-fifths {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+/* Additional constraint for interpolation panels */
+.interpolation-panel .columns {
+  max-width: 100%;
+  margin: 0 auto;
 }

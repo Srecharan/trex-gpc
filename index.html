@@ -32,7 +32,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="icon" href="./static/images/cmu_logo.png">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -134,7 +134,7 @@
               </span>
               <!-- Dataset Link. -->
               <span class="link-block">
-                <a href="#"
+                <a href="https://drive.google.com/file/d/1IfbEu46vCMeQ-PtjwJ3RlUAobK5jPzQu/view?usp=drive_link"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="far fa-images"></i>
@@ -202,159 +202,121 @@
 
 <section class="section">
   <div class="container is-max-desktop">
-    <!-- Abstract. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <p>
-            Automating leaf manipulation in agricultural settings faces significant challenges, including the variability of plant morphologies and deformable leaves. We propose a novel hybrid geometric-neural approach for autonomous leaf grasping that combines classical computer vision with neural networks through self-supervised learning.
-          </p>
-          <p>
-            Our method integrates YOLOv8 for instance segmentation and RAFT-Stereo for 3D depth estimation to build rich leaf representations, which feed into both a geometric feature scoring pipeline and a neural refinement module (GraspPointCNN). The key innovation is our confidence-weighted fusion mechanism that dynamically balances the contribution of each approach based on prediction certainty.
-          </p>
-          <p>
-            Our self-supervised framework uses the geometric pipeline as an expert teacher to automatically generate training data. Experiments demonstrate that our approach achieves an 88.0% success rate in controlled environments and 84.7% in real greenhouse conditions, significantly outperforming both purely geometric (75.3%) and neural (60.2%) methods.
-          </p>
+    <div class="main-content-standard">
+      <!-- Abstract. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Automating leaf manipulation in agricultural settings faces significant challenges, including the variability of plant morphologies and deformable leaves. We propose a novel hybrid geometric-neural approach for autonomous leaf grasping that combines classical computer vision with neural networks through self-supervised learning.
+            </p>
+            <p>
+              Our method integrates YOLOv8 for instance segmentation and RAFT-Stereo for 3D depth estimation to build rich leaf representations, which feed into both a geometric feature scoring pipeline and a neural refinement module (GraspPointCNN). The key innovation is our confidence-weighted fusion mechanism that dynamically balances the contribution of each approach based on prediction certainty.
+            </p>
+            <p>
+              Our self-supervised framework uses the geometric pipeline as an expert teacher to automatically generate training data. Experiments demonstrate that our approach achieves an 88.0% success rate in controlled environments and 84.7% in real greenhouse conditions, significantly outperforming both purely geometric (75.3%) and neural (60.2%) methods.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
-    <!--/ Abstract. -->
+      <!--/ Abstract. -->
 
-    <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">System Architecture</h2>
-        <div class="publication-video">
-          <img src="./static/project-1/REX.drawio_f.png" alt="System Architecture" style="width: 100%;">
-        </div>
-        <div class="content has-text-justified">
-          <p>
+      <!-- System Architecture. -->
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">System Architecture</h2>
+          <img src="./static/project-1/REX.drawio_f.png" alt="System Architecture" style="width: 100%; max-width: 800px;">
+          <p class="content has-text-justified" style="margin-top: 10px;">
             Our hybrid approach combines three key components: vision pipeline, grasp point selection, and robot manipulation. The system processes stereo image pairs to output precise 3D grasp coordinates.
           </p>
         </div>
       </div>
-    </div>
-    <!--/ Paper video. -->
-  </div>
-</section>
+      <!--/ System Architecture. -->
 
-<section class="section">
-  <div class="container is-max-desktop">
-
-    <div class="columns is-centered">
-      <!-- Visual Effects. -->
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Instance Segmentation</h2>
-          <p>
-            Fine-tuned YOLOv8 on ~900 images, achieving 68% mAP@[0.5:0.95] for precise leaf mask generation with high confidence scores.
-          </p>
-          <img src="./static/project-1/yolo_output.png" alt="YOLOv8 Output" style="width: 100%;">
-          <img src="./static/project-1/curvature_plot.png" alt="MATLAB Surface Analysis" style="width: 100%;">
-          <p style="text-align: center; font-style: italic; margin-top: 5px; font-size: 0.9em;">MATLAB surface plot analysis showing leaf curvature distribution</p>
-        </div>
-      </div>
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <div class="column">
-        <h2 class="title is-3">Depth Estimation</h2>
-        <div class="columns is-centered">
-          <div class="column content">
+      <!-- Instance Segmentation & Depth Estimation. -->
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-3">Instance Segmentation</h2>
             <p>
-              RAFT-Stereo provides high-precision depth maps with sub-pixel accuracy for detailed 3D reconstruction.
+              Fine-tuned YOLOv8 on ~900 images, achieving 68% mAP@[0.5:0.95] for precise leaf mask generation with high confidence scores.
             </p>
-            <div style="display: flex; gap: 10px; margin-bottom: 10px;">
-              <img src="./static/project-1/rgb_input.png" alt="RGB Input" style="width: 48%;">
-              <img src="./static/project-1/depth0.png" alt="Depth Map" style="width: 48%;">
-            </div>
-            <img src="./static/project-1/plant_pcd-2x.gif" alt="Point Cloud" style="width: 100%; margin-top: 10px;">
-            <p style="text-align: center; font-style: italic; margin-top: 5px; font-size: 0.9em;">3D point cloud reconstruction</p>
+            <img src="./static/project-1/yolo_output.png" alt="YOLOv8 Output" style="width: 100%; max-width: 800px;">
+            <img src="./static/project-1/curvature_plot.png" alt="MATLAB Surface Analysis" style="width: 100%; max-width: 800px;">
+            <p style="text-align: center; font-style: italic; margin-top: 5px; font-size: 0.9em;">MATLAB surface plot analysis showing leaf curvature distribution</p>
+          </div>
+        </div>
+        <div class="column">
+          <h2 class="title is-3">Depth Estimation</h2>
+          <div class="columns is-centered">
+            <div class="column content">
+              <p>
+                RAFT-Stereo provides high-precision depth maps with sub-pixel accuracy for detailed 3D reconstruction.
+              </p>
+              <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                <img src="./static/project-1/rgb_input.png" alt="RGB Input" style="width: 48%; max-width: 380px;">
+                <img src="./static/project-1/depth0.png" alt="Depth Map" style="width: 48%; max-width: 380px;">
+              </div>
+              <img src="./static/project-1/plant_pcd-2x.gif" alt="Point Cloud" style="width: 100%; max-width: 800px; margin-top: 10px;">
+              <p style="text-align: center; font-style: italic; margin-top: 5px; font-size: 0.9em;">3D point cloud reconstruction</p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <!--/ Matting. -->
+      <!--/ Instance Segmentation & Depth Estimation. -->
 
-    <!-- Animation. -->
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Hybrid Grasp Point Selection</h2>
-
-        <!-- Interpolating. -->
-        <h3 class="title is-4">Traditional Computer Vision Pipeline</h3>
-        <div class="content has-text-justified">
-          <p>
-            Geometric CV component uses Pareto optimization for leaf selection based on clutter score (35%), distance score (35%), and visibility score (30%). Grasp point selection employs flatness analysis, approach vector quality, and accessibility scoring.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-5 has-text-centered">
-            <img src="./static/project-1/cv_op1.png"
-                 class="interpolation-image"
-                 alt="CV Output 1"/>
-            <p>Raw stereo camera image with detected leaf midrib</p>
+      <!-- Hybrid Grasp Point Selection. -->
+      <div class="columns is-centered">
+        <div class="column">
+          <h2 class="title is-3">Hybrid Grasp Point Selection</h2>
+          <h3 class="title is-4">Traditional Computer Vision Pipeline</h3>
+          <div class="content has-text-justified">
+            <p>
+              Geometric CV component uses Pareto optimization for leaf selection based on clutter score (35%), distance score (35%), and visibility score (30%). Grasp point selection employs flatness analysis, approach vector quality, and accessibility scoring.
+            </p>
           </div>
-          <div class="column is-2 has-text-centered">
-            <p style="font-size: 2em;">→</p>
+          <div class="columns is-vcentered interpolation-panel">
+            <div class="column is-5 has-text-centered">
+              <img src="./static/project-1/cv_op1.png" class="interpolation-image" alt="CV Output 1" style="max-width: 400px;">
+              <p>Raw stereo camera image with detected leaf midrib</p>
+            </div>
+            <div class="column is-2 has-text-centered">
+              <p style="font-size: 2em;">→</p>
+            </div>
+            <div class="column is-5 has-text-centered">
+              <img src="./static/project-1/cv_op2.png" class="interpolation-image" alt="CV Output 2" style="max-width: 400px;">
+              <p class="is-bold">Segmented leaf visualization with grasp point selection</p>
+            </div>
           </div>
-          <div class="column is-5 has-text-centered">
-            <img src="./static/project-1/cv_op2.png"
-                 class="interpolation-image"
-                 alt="CV Output 2"/>
-            <p class="is-bold">Segmented leaf visualization with grasp point selection</p>
+          <h3 class="title is-4">Neural Refinement (GraspPointCNN)</h3>
+          <div class="content has-text-justified">
+            <p>
+              Self-supervised learning where the CV pipeline acts as an expert teacher. The CNN processes 9-channel input features with spatial attention mechanism for optimal grasp point refinement.
+            </p>
+          </div>
+          <div class="content has-text-centered">
+            <img src="./static/project-1/CNN_grasp.drawio.png" alt="CNN Architecture" style="width: 60%; max-width: 400px;">
+          </div>
+          <h3 class="title is-4">Confidence-Weighted Integration</h3>
+          <div class="content has-text-justified">
+            <p>
+              Dynamic integration strategy where ML influence varies (10-30%) based on prediction confidence, falling back to traditional CV (70-90%) for low-confidence predictions.
+            </p>
+          </div>
+          <div class="content has-text-centered">
+            <img src="./static/project-1/hybrid_op.png" alt="Hybrid Output" style="width: 80%; max-width: 800px;">
           </div>
         </div>
-
-        <!-- Re-rendering. -->
-        <h3 class="title is-4">Neural Refinement (GraspPointCNN)</h3>
-        <div class="content has-text-justified">
-          <p>
-            Self-supervised learning where the CV pipeline acts as an expert teacher. The CNN processes 9-channel input features with spatial attention mechanism for optimal grasp point refinement.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <img src="./static/project-1/CNN_grasp.drawio.png" alt="CNN Architecture" style="width: 60%; max-width: 400px;">
-        </div>
-
-        <h3 class="title is-4">Confidence-Weighted Integration</h3>
-        <div class="content has-text-justified">
-          <p>
-            Dynamic integration strategy where ML influence varies (10-30%) based on prediction confidence, falling back to traditional CV (70-90%) for low-confidence predictions.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <img src="./static/project-1/hybrid_op.png" alt="Hybrid Output" style="width: 100%;">
-        </div>
-        <!--/ Re-rendering. -->
-
       </div>
-    </div>
-    <!--/ Animation. -->
+      <!--/ Hybrid Grasp Point Selection. -->
 
-    <!-- Concurrent Work. -->
-    <div class="columns is-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Results & Performance</h2>
-
-        <!-- <div class="content has-text-justified">
-          <h3 class="title is-4">Model Metrics</h3>
-          <div style="display: flex; justify-content: space-around; margin: 20px 0;">
-            <div>
-              <strong>Validation Accuracy:</strong> 93.14%<br>
-              <strong>Positive Accuracy:</strong> 97.09%<br>
-              <strong>Precision:</strong> 92.59%
-            </div>
-            <div>
-              <strong>Recall:</strong> 97.09%<br>
-              <strong>F1 Score:</strong> 94.79%
-            </div>
-          </div> -->
-
+      <!-- Results & Performance. -->
+      <div class="columns is-centered">
+        <div class="column">
+          <h2 class="title is-3">Results & Performance</h2>
           <h3 class="title is-4">System Performance (150 test cases)</h3>
-          <table class="table">
+          <table class="table" style="max-width: 800px; margin: 0 auto;">
             <thead>
               <tr>
                 <th>Metric</th>
@@ -390,17 +352,15 @@
               </tr>
             </tbody>
           </table>
-        </div>
-
-        <h3 class="title is-4">Real Robot Operation</h3>
-        <div class="content has-text-centered">
-          <img src="./static/project-1/rex_grasp_4x.gif" alt="T-REX Robot Operation" style="width: 60%; max-width: 400px;">
-          <p><em>Complete pipeline in action: Once 3D coordinates are determined, the system executes precise leaf grasping</em></p>
+          <h3 class="title is-4" style="margin-top: 2em;">Real Robot Operation</h3>
+          <div class="content has-text-centered">
+            <img src="./static/project-1/rex_grasp_4x.gif" alt="T-REX Robot Operation" style="width: 60%; max-width: 400px;">
+            <p><em>Complete pipeline in action: Once 3D coordinates are determined, the system executes precise leaf grasping</em></p>
+          </div>
         </div>
       </div>
+      <!--/ Results & Performance. -->
     </div>
-    <!--/ Concurrent Work. -->
-
   </div>
 </section>
 
